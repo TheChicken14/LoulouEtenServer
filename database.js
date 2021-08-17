@@ -5,11 +5,10 @@
 // module.exports = keyv;
 
 const mongoose = require("mongoose");
-const mongoURI = require("./config").mongoURI;
 
 const connect = async () => {
   try {
-    await mongoose.connect(mongoURI, {
+    await mongoose.connect(process.env.MONGOURI, {
       useNewUrlParser: true,
     });
     console.log("[DB]: Connected to DB");

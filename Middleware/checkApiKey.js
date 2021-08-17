@@ -1,5 +1,3 @@
-const config = require("../config");
-
 /**
  *
  * @param {import("express").Request} req
@@ -7,7 +5,7 @@ const config = require("../config");
  * @param {import("express").NextFunction} next
  */
 module.exports = (req, res, next) => {
-  if (req.headers["authorization"] == config.api_key) {
+  if (req.headers["authorization"] == process.env.API_URL) {
     next();
   } else {
     res.status(403).json({
