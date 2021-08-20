@@ -28,18 +28,12 @@ class FoodManager {
   async hasFood() {
     const isEvening = new Date().getHours() > 12;
 
-    const search = isEvening
-      ? {
-          $gte: new Date().setHours(13, 0, 0),
-          $lt: new Date().setHours(23, 59, 59),
-        }
-      : {
-          $gte: new Date().setHours(0, 0, 0),
-          $lt: new Date().setHours(13, 0, 0),
-        };
-
     const found = await Food.find({
-      date: search,
+      date: {
+        $gte: new Date().setHours(0, 0, 0),
+        $lt: new Date().setHours(23, 59, 59),
+      },
+      type: isEvening ? "evening" : "morning",
     });
 
     return found[0] || null;
