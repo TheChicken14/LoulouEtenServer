@@ -4,9 +4,10 @@ const router = express.Router();
 
 /* Delete Feeding history item */
 router.delete("/", async (req, res) => {
-  const { _id } = req.body;
+  const { _id } = req.query;
 
   if (!_id || _id.length < 1) {
+    console.log("no id");
     return res.status(401).send({
       success: false,
       message: "_id parameter is required.",
