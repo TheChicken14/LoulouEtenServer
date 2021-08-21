@@ -13,7 +13,7 @@ module.exports = async (req, res, next) => {
   }
 
   const authHeader = req.headers["authorization"];
-  if (authHeader == process.env.API_KEY) {
+  if (authHeader == process.env.API_URL) {
     return next();
   }
   const decoded = JWTManager.decode(authHeader || null);
