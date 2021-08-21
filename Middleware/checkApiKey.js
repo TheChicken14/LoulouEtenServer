@@ -13,6 +13,9 @@ module.exports = async (req, res, next) => {
   }
 
   const authHeader = req.headers["authorization"];
+  if (authHeader == process.env.API_KEY) {
+    return next();
+  }
   const decoded = JWTManager.decode(authHeader || null);
   const user = decoded
     ? await User.findOne({ googleId: decoded.googleId })
