@@ -14,7 +14,7 @@ router.get(
       googleId: req.user.googleId,
     });
 
-    if (req.headers["user-agent"].includes("mobile")) {
+    if (req.headers["user-agent"].toLowerCase().includes("mobile")) {
       return res.redirect(`loulouapp://authenticate/${jwt}`);
     }
 
