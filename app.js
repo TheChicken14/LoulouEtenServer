@@ -26,6 +26,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
+if (process.env.PRODUCTION) {
+  app.set("trust proxy", true);
+}
+
 app.use(checkApiKey);
 app.use(passport.initialize());
 
