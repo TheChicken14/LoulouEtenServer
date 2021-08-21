@@ -10,6 +10,10 @@ const giveFood = require("./routes/giveFood");
 const undoFeeding = require("./routes/undoFeeding");
 const deleteHistory = require("./routes/deleteHistory");
 const feedingHistory = require("./routes/feedingHistory");
+
+const googleAuth = require("./routes/authentication");
+const passport = require("./Structures/Passport");
+
 const checkApiKey = require("./Middleware/checkApiKey");
 
 const app = express();
@@ -23,6 +27,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use(checkApiKey);
+app.use(passport.initialize());
 
 app.use("/", indexRouter);
 app.use("/loulou/hasFood", hasFood);
@@ -30,5 +35,6 @@ app.use("/loulou/giveFood", giveFood);
 app.use("/loulou/undoFeeding", undoFeeding);
 app.use("/loulou/removeItem", deleteHistory);
 app.use("/loulou/history", feedingHistory);
+app.use("/auth", googleAuth);
 
 module.exports = app;
