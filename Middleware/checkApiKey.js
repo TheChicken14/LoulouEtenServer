@@ -1,5 +1,6 @@
 const User = require("../Models/User");
 const JWTManager = require("../Structures/JWTManager");
+const prisma = require("../Structures/Prisma");
 
 /**
  *
@@ -18,7 +19,11 @@ module.exports = async (req, res, next) => {
   }
   const decoded = JWTManager.decode(authHeader || null);
   const user = decoded
-    ? await User.findOne({ googleId: decoded.googleId })
+    ? await prisma.user.findFirst({
+        where: {
+          googleId: decoded?.googleId,
+        },
+      })
     : null;
 
   if (decoded && user) {
