@@ -11,6 +11,14 @@ const undoFeeding = require("./routes/undoFeeding");
 const deleteHistory = require("./routes/deleteHistory");
 const feedingHistory = require("./routes/feedingHistory");
 
+const createPet = require("./routes/Pet/createPet");
+const feedPet = require("./routes/Pet/feedPet");
+const getPetStatus = require("./routes/Pet/getPetStatus");
+
+const userInfo = require("./routes/User/userInfo");
+
+const deleteItem = require("./routes/Food/deleteItem");
+
 const googleAuth = require("./routes/authentication");
 const passport = require("./Structures/Passport");
 
@@ -40,5 +48,13 @@ app.use("/loulou/undoFeeding", undoFeeding);
 app.use("/loulou/removeItem", deleteHistory);
 app.use("/loulou/history", feedingHistory);
 app.use("/auth", googleAuth);
+
+app.use("/pet/create", createPet);
+app.use("/pet/feed", feedPet);
+app.use("/pet/status", getPetStatus);
+
+app.use("/user/info", userInfo);
+
+app.use("/food/delete", deleteItem);
 
 module.exports = app;
