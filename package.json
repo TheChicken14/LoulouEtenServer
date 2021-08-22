@@ -6,6 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "@prisma/client": "^2.29.1",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^10.0.0",
@@ -18,5 +19,8 @@
     "passport": "^0.4.1",
     "passport-google-oauth20": "^2.0.0",
     "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "prisma": "^2.29.1"
   }
 }
