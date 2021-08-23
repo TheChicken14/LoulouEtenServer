@@ -18,6 +18,7 @@ const getPetStatus = require("./routes/Pet/getPetStatus");
 const userInfo = require("./routes/User/userInfo");
 
 const deleteItem = require("./routes/Food/deleteItem");
+const getFoodHistory = require("./routes/Food/getFoodHistory");
 
 const googleAuth = require("./routes/authentication");
 const passport = require("./Structures/Passport");
@@ -56,5 +57,5 @@ app.use("/pet/status", getPetStatus);
 app.use("/user/info", userInfo);
 
 app.use("/food/delete", deleteItem);
-
+app.use("/food/history", getFoodHistory);
 module.exports = app;
