@@ -11,29 +11,39 @@ generator client {
 }
 
 model User {
-  id Int @id @default(autoincrement())
-  name String @db.VarChar(255)
-  email   String   @unique @db.VarChar(255)
-  googleId String @db.VarChar(255)
-  createdAt DateTime @default(now()) @db.Timestamp(6)
-  pets Pet[]
-  foodItems Food[]
+  id          Int       @id @default(autoincrement())
+  name        String    @db.VarChar(255)
+  email       String    @unique @db.VarChar(255)
+  googleId    String    @db.VarChar(255)
+  createdAt   DateTime  @default(now()) @db.Timestamp(6)
+  pets        Pet[]
+  foodItems   Food[]
+  invitations Invitation[]
 }
 
 model Pet {
-  id Int @id @default(autoincrement())
-  name String @db.VarChar(255)
-  owners User[]
-  foodItems Food[]
+  id          Int    @id @default(autoincrement())
+  name        String @db.VarChar(255)
+  owners      User[]
+  foodItems   Food[]
+  invitations Invitation[]
 }
 
 model Food {
-  id Int @id @default(autoincrement())
-  by User @relation(fields: [byId], references: [id])
-  byId Int
-  for Pet @relation(fields: [forId], references: [id])
+  id    Int       @id @default(autoincrement())
+  by    User      @relation(fields: [byId], references: [id])
+  byId  Int
+  for   Pet       @relation(fields: [forId], references: [id])
   forId Int
-  date DateTime @default(now()) @db.Timestamp(6)
-  type String @db.VarChar(255)
+  date  DateTime  @default(now()) @db.Timestamp(6)
+  type  String    @db.VarChar(255)
 }
 
+model Invitation {
+  id              Int    @id @default(autoincrement())
+  invitationCode  String @db.VarChar(255)
+  from            User   @relation(fields: [fromId], references: [id])
+  fromId          Int
+  pet             Pet    @relation(fields: [petId], references: [id])
+  petId           Int
+}
