@@ -14,8 +14,10 @@ router.post(
     .default(() => new Date().toISOString()),
   body("type").isString().optional(),
   async (req, res) => {
-    const { id: petID, date, type } = req.body;
+    const { id: _petID, date, type } = req.body;
     const { id: userID } = req.user;
+
+    const petID = Number(_petID);
 
     const result = validationResult(req);
     if (!result.isEmpty()) {
