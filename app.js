@@ -20,6 +20,10 @@ const userInfo = require("./routes/User/userInfo");
 const deleteItem = require("./routes/Food/deleteItem");
 const getFoodHistory = require("./routes/Food/getFoodHistory");
 
+const createInvite = require("./routes/Invitation/createInvite");
+const acceptInvite = require("./routes/Invitation/acceptInvite");
+const getInvites = require("./routes/Invitation/getInvites");
+
 const googleAuth = require("./routes/authentication");
 const passport = require("./Structures/Passport");
 
@@ -58,4 +62,8 @@ app.use("/user/info", userInfo);
 
 app.use("/food/delete", deleteItem);
 app.use("/food/history", getFoodHistory);
+
+app.use("/invite/create", createInvite);
+app.use("/invite/accept", acceptInvite);
+app.use("/invite/list", getInvites);
 module.exports = app;
