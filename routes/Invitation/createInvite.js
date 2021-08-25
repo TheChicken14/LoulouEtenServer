@@ -31,12 +31,12 @@ router.post("/:id", param("id").isInt(), async (req, res) => {
   const foundInvite = await prisma.invitation.findFirst({
     where: {
       petId: petID,
-      fromId: userId,
+      fromId: userID,
     },
   });
 
   if (foundInvite) {
-    return foundInvite;
+    return res.send(foundInvite);
   }
 
   const inviteID = cryptoRandomString({ type: "url-safe", length: 10 });
