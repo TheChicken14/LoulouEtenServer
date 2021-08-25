@@ -6,13 +6,17 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "@nicokaiser/passport-apple": "^0.2.1",
     "@prisma/client": "^2.29.1",
+    "axios": "^0.21.1",
     "cookie-parser": "~1.4.4",
     "crypto-random-string": "^3.3.1",
     "debug": "~2.6.9",
     "dotenv": "^10.0.0",
     "express": "~4.16.1",
     "express-validator": "^6.12.1",
+    "jose": "^3.15.4",
+    "jose-node-cjs-runtime": "^3.15.4",
     "jsonwebtoken": "^8.5.1",
     "keyv": "^4.0.3",
     "mongoose": "^5.13.7",

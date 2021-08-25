@@ -2,6 +2,16 @@
 # yarn lockfile v1
 
 
+"@nicokaiser/passport-apple@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@nicokaiser/passport-apple/-/passport-apple-0.2.1.tgz#e224f0b12d7326082c50e376078ec25caabcb12a"
+  integrity sha512-5Spi6fl4KabSHkcjpXQEnd5BnmMptNaDNHndCiGLg2fK9OwLVE6OrgQQZi9mZqmjaPtWyivzV1dSegN+uB3xFQ==
+  dependencies:
+    jsonwebtoken "^8.5.1"
+    oauth "^0.9.15"
+    passport-strategy "^1.0.0"
+    uid2 "0.0.3"
+
 "@prisma/client@^2.29.1":
   version "2.29.1"
   resolved "https://registry.yarnpkg.com/@prisma/client/-/client-2.29.1.tgz#a7b91c9644800de4e00b2f7c3789ff4bae42b3d6"
@@ -51,6 +61,13 @@ array-flatten@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/array-flatten/-/array-flatten-1.1.1.tgz#9a5f699051b1e7073328f2a008968b64ea2955d2"
   integrity sha1-ml9pkFGx5wczKPKgCJaLZOopVdI=
+
+axios@^0.21.1:
+  version "0.21.1"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.21.1.tgz#22563481962f4d6bde9a76d516ef0e5d3c09b2b8"
+  integrity sha512-dKQiRHxGD9PPRIUNIWvZhPTPpl1rf/OxTYKsqKUDjBwYylTvV7SjSHJb9ratfyzM6wCdLCOYLzs73qpg5c4iGA==
+  dependencies:
+    follow-redirects "^1.10.0"
 
 base64url@3.x.x:
   version "3.0.1"
@@ -271,6 +288,11 @@ finalhandler@1.1.1:
     statuses "~1.4.0"
     unpipe "~1.0.0"
 
+follow-redirects@^1.10.0:
+  version "1.14.2"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.14.2.tgz#cecb825047c00f5e66b142f90fed4f515dec789b"
+  integrity sha512-yLR6WaE2lbF0x4K2qE2p9PEXKLDjUjnR/xmjS3wHAYxtlsI9MLLBJUZirAHKzUZDGLxje7w/cXR49WOUo4rbsA==
+
 forwarded@0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/forwarded/-/forwarded-0.2.0.tgz#2269936428aad4c15c7ebe9779a84bf0b2a81811"
@@ -317,6 +339,16 @@ isarray@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/isarray/-/isarray-1.0.0.tgz#bb935d48582cba168c06834957a54a3e07124f11"
   integrity sha1-u5NdSFgsuhaMBoNJV6VKPgcSTxE=
+
+jose-node-cjs-runtime@^3.15.4:
+  version "3.15.4"
+  resolved "https://registry.yarnpkg.com/jose-node-cjs-runtime/-/jose-node-cjs-runtime-3.15.4.tgz#7058fec3647d7ce513ced9df066c1e6474c970c9"
+  integrity sha512-YkfdukFlO54aqPQ/9H1W4KWkyjHNcw0GPMEVZOXrlgHwnN/wZ1+fiItKvFAAeYZZAzqmw+xMwRTLx4nl3K3ZoA==
+
+jose@^3.15.4:
+  version "3.15.4"
+  resolved "https://registry.yarnpkg.com/jose/-/jose-3.15.4.tgz#b9ebbbe596768539fc844daf470d3d9d12d05381"
+  integrity sha512-SXeGi+g5ZcNgV6o7f+Mx3Q1gaYMSBzAi3cmcZPxoeCEZPgfSCnnyfmMXzXoLDh+XL4KMtGvhOsYBoqQhnuR2rQ==
 
 json-buffer@3.0.1:
   version "3.0.1"
@@ -529,7 +561,7 @@ negotiator@0.6.2:
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.2.tgz#feacf7ccf525a77ae9634436a64883ffeca346fb"
   integrity sha512-hZXc7K2e+PgeI1eDBe/10Ard4ekbfrrqG8Ep+8Jmf4JID2bNg7NvCPOZN+kfF574pFQI7mum2AUqDidoKqcTOw==
 
-oauth@0.9.x:
+oauth@0.9.x, oauth@^0.9.15:
   version "0.9.15"
   resolved "https://registry.yarnpkg.com/oauth/-/oauth-0.9.15.tgz#bd1fefaf686c96b75475aed5196412ff60cfb9c1"
   integrity sha1-vR/vr2hslrdUda7VGWQS/2DPucE=
@@ -581,7 +613,7 @@ passport-oauth2@1.x.x:
     uid2 "0.0.x"
     utils-merge "1.x.x"
 
-passport-strategy@1.x.x:
+passport-strategy@1.x.x, passport-strategy@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/passport-strategy/-/passport-strategy-1.0.0.tgz#b5539aa8fc225a3d1ad179476ddf236b440f52e4"
   integrity sha1-tVOaqPwiWj0a0XlHbd8ja0QPUuQ=
@@ -775,7 +807,7 @@ type-is@~1.6.16:
     media-typer "0.3.0"
     mime-types "~2.1.24"
 
-uid2@0.0.x:
+uid2@0.0.3, uid2@0.0.x:
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/uid2/-/uid2-0.0.3.tgz#483126e11774df2f71b8b639dcd799c376162b82"
   integrity sha1-SDEm4Rd03y9xuLY53NeZw3YWK4I=
