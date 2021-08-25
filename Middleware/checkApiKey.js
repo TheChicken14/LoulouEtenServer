@@ -9,7 +9,10 @@ const prisma = require("../Structures/Prisma");
  * @param {import("express").NextFunction} next
  */
 module.exports = async (req, res, next) => {
-  if (req.path.startsWith("/auth/google")) {
+  if (
+    req.path.startsWith("/auth/google") ||
+    req.path.startsWith("/auth/apple")
+  ) {
     return next();
   }
 
@@ -21,10 +24,12 @@ module.exports = async (req, res, next) => {
   const user = decoded
     ? await prisma.user.findFirst({
         where: {
-          googleId: decoded?.googleId,
+          appleId: decoded?.appleId,
         },
       })
     : null;
+
+  console.log(authHeader);
 
   if (decoded && user) {
     req.user = user;
