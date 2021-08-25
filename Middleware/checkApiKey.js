@@ -29,8 +29,6 @@ module.exports = async (req, res, next) => {
       })
     : null;
 
-  console.log(authHeader);
-
   if (decoded && user) {
     req.user = user;
     next();
