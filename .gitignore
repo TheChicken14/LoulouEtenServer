@@ -122,3 +122,6 @@ config.js
 
 # MacOS
 .DS_Store
+
+# Apple AuthKey
+authkey.p8
