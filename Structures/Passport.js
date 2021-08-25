@@ -1,6 +1,8 @@
 const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
-const User = require("../Models/User");
+const AppleStrategy = require("@nicokaiser/passport-apple").Strategy;
+const fs = require("fs");
+const path = require("path");
 
 const prisma = require("./Prisma");
 
@@ -30,21 +32,6 @@ passport.use(
         });
         done(null, newUser);
       }
-
-      // const user = await User.findOne({
-      //   googleId: profile.id,
-      // });
-
-      // if (user) {
-      //   done(null, user);
-      // } else {
-      //   const newUser = new User({
-      //     email: profile.emails[0].value,
-      //     name: profile.name.givenName + " " + profile.name.familyName,
-      //     googleId: profile.id,
-      //   });
-      //   done(null, await newUser.save());
-      // }
     }
   )
 );
