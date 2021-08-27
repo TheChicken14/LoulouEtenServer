@@ -14,6 +14,7 @@ const feedingHistory = require("./routes/feedingHistory");
 const createPet = require("./routes/Pet/createPet");
 const feedPet = require("./routes/Pet/feedPet");
 const getPetStatus = require("./routes/Pet/getPetStatus");
+const deletePet = require("./routes/Pet/deletePet");
 
 const userInfo = require("./routes/User/userInfo");
 
@@ -59,6 +60,7 @@ app.use("/auth", googleAuth);
 app.use("/pet/create", createPet);
 app.use("/pet/feed", feedPet);
 app.use("/pet/status", getPetStatus);
+app.use("/pet/delete", deletePet);
 
 app.use("/user/info", userInfo);
 
