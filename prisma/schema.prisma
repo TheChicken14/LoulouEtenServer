@@ -28,6 +28,22 @@ model Pet {
   owners      User[]
   foodItems   Food[]
   invitations Invitation[]
+  profile PetProfile?
+  profileId Int?
+}
+
+model PetProfile {
+  id          Int     @id @default(autoincrement())
+  pet         Pet     @relation(fields: [petId], references: [id])
+  petId       Int
+
+  birthday    DateTime?
+  
+  morningFood String  @db.VarChar(255) @default("")
+  dinnerFood  String  @db.VarChar(255) @default("")
+  extraNotes  String  @db.VarChar(255) @default("")
+
+  picturePath String? @db.VarChar(255)
 }
 
 model Food {
