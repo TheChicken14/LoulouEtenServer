@@ -21,6 +21,7 @@ router.delete("/:id", param("id").isInt(), async (req, res) => {
     },
     include: {
       owners: true,
+      profile: true,
     },
   });
 
@@ -39,6 +40,11 @@ router.delete("/:id", param("id").isInt(), async (req, res) => {
   await prisma.invitation.deleteMany({
     where: {
       petId: petID,
+    },
+  });
+  await prisma.petProfile.delete({
+    where: {
+      id: pet.profile.id,
     },
   });
   await prisma.pet.delete({
