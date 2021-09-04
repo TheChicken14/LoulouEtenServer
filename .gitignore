@@ -125,3 +125,6 @@ config.js
 
 # Apple AuthKey
 authkey.p8
+
+# Data
+data/
