@@ -15,6 +15,9 @@ const createPet = require("./routes/Pet/createPet");
 const feedPet = require("./routes/Pet/feedPet");
 const getPetStatus = require("./routes/Pet/getPetStatus");
 const deletePet = require("./routes/Pet/deletePet");
+const getPetProfile = require("./routes/Pet/getPetProfile");
+const updatePet = require("./routes/Pet/updatePet");
+const uploadPetPhoto = require("./routes/Pet/uploadPetPhoto");
 
 const userInfo = require("./routes/User/userInfo");
 
@@ -26,6 +29,8 @@ const acceptInvite = require("./routes/Invitation/acceptInvite");
 const getInvites = require("./routes/Invitation/getInvites");
 const deleteInvite = require("./routes/Invitation/deleteInvite");
 const getInviteInfo = require("./routes/Invitation/getInviteInfo");
+
+const getImage = require("./routes/Image/getImage");
 
 const googleAuth = require("./routes/authentication");
 const passport = require("./Structures/Passport");
@@ -61,6 +66,9 @@ app.use("/pet/create", createPet);
 app.use("/pet/feed", feedPet);
 app.use("/pet/status", getPetStatus);
 app.use("/pet/delete", deletePet);
+app.use("/pet/profile", getPetProfile);
+app.use("/pet/profile/update", updatePet);
+app.use("/pet/upload/photo", uploadPetPhoto);
 
 app.use("/user/info", userInfo);
 
@@ -72,5 +80,7 @@ app.use("/invite/accept", acceptInvite);
 app.use("/invite/list", getInvites);
 app.use("/invite/delete", deleteInvite);
 app.use("/invite/info", getInviteInfo);
+
+app.use("/image/get", getImage);
 
 module.exports = app;
