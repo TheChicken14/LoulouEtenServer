@@ -22,7 +22,11 @@ router.get("/", async (req, res) => {
           type: true,
         },
       },
-      pets: true,
+      pets: {
+        include: {
+          profile: true,
+        },
+      },
     },
   });
 
