@@ -11,7 +11,8 @@ const prisma = require("../Structures/Prisma");
 module.exports = async (req, res, next) => {
   if (
     req.path.startsWith("/auth/google") ||
-    req.path.startsWith("/auth/apple")
+    req.path.startsWith("/auth/apple") ||
+    req.path.startsWith("/image/get")
   ) {
     return next();
   }
