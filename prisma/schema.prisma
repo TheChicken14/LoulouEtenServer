@@ -29,7 +29,6 @@ model Pet {
   foodItems   Food[]
   invitations Invitation[]
   profile PetProfile?
-  profileId Int?
 }
 
 model PetProfile {
@@ -43,7 +42,7 @@ model PetProfile {
   dinnerFood  String  @db.VarChar(255) @default("")
   extraNotes  String  @db.VarChar(255) @default("")
 
-  picturePath String? @db.VarChar(255)
+  pictureName String? @db.VarChar(255)
 }
 
 model Food {
