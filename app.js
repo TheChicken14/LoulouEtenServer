@@ -32,6 +32,10 @@ const getInviteInfo = require("./routes/Invitation/getInviteInfo");
 
 const getImage = require("./routes/Image/getImage");
 
+const createQrCode = require("./routes/QRCodes/createQrCode");
+const getQrCode = require("./routes/QRCodes/getQrCode");
+const getAllQrCodes = require("./routes/QRCodes/getAllQrCodes");
+
 const googleAuth = require("./routes/authentication");
 const passport = require("./Structures/Passport");
 
@@ -82,5 +86,9 @@ app.use("/invite/delete", deleteInvite);
 app.use("/invite/info", getInviteInfo);
 
 app.use("/image/get", getImage);
+
+app.use("/qrcodes/create", createQrCode);
+app.use("/qrcodes/get", getQrCode);
+app.use("/qrcodes/all", getAllQrCodes);
 
 module.exports = app;
