@@ -42,11 +42,13 @@ router.delete("/:id", param("id").isInt(), async (req, res) => {
       petId: petID,
     },
   });
-  await prisma.petProfile.delete({
-    where: {
-      id: pet.profile.id,
-    },
-  });
+  if (pet.profile) {
+    await prisma.petProfile.delete({
+      where: {
+        id: pet.profile.id,
+      },
+    });
+  }
   await prisma.pet.delete({
     where: {
       id: petID,
