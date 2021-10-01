@@ -49,6 +49,12 @@ router.delete("/:id", param("id").isInt(), async (req, res) => {
       },
     });
   }
+  await prisma.qrCode.deleteMany({
+    where: {
+      petId: petID,
+    },
+  });
+
   await prisma.pet.delete({
     where: {
       id: petID,
