@@ -21,6 +21,7 @@ model User {
   foodItems   Food[]
   invitations Invitation[]
   qrCodes     QrCode[]
+  devices     Device[]
 }
 
 model Pet {
@@ -31,7 +32,6 @@ model Pet {
   invitations Invitation[]
   qrCodes     QrCode[]
   profile     PetProfile?
-
 }
 
 model PetProfile {
@@ -78,4 +78,14 @@ model QrCode {
   userId    Int
 
   createdAt DateTime  @default(now()) @db.Timestamp(6)
+}
+
+model Device {
+  id        Int    @id @default(autoincrement())
+  name      String @db.VarChar(255)
+  uuid      String @db.VarChar(255)
+  fcmToken  String @db.VarChar(255)
+
+  owner     User @relation(fields: [ownerId], references: [id])
+  ownerId   Int
 }
