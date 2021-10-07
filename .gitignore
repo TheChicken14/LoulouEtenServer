@@ -128,3 +128,6 @@ authkey.p8
 
 # Data
 data/
+
+# Firebase key
+loulous-app-firebase.json
