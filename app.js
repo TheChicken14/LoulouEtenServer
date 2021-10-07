@@ -36,10 +36,15 @@ const createQrCode = require("./routes/QRCodes/createQrCode");
 const getQrCode = require("./routes/QRCodes/getQrCode");
 const getAllQrCodes = require("./routes/QRCodes/getAllQrCodes");
 
+const registerDevice = require("./routes/Device/registerDevice");
+
+const getNotifications = require("./routes/Notifications/getNotifications");
+
 const googleAuth = require("./routes/authentication");
 const passport = require("./Structures/Passport");
 
 const checkApiKey = require("./Middleware/checkApiKey");
+const Notifications = require("./Structures/Firebase/Notifications");
 
 const app = express();
 
@@ -88,5 +93,9 @@ app.use("/image/get", getImage);
 app.use("/qrcodes/create", createQrCode);
 app.use("/qrcodes/get", getQrCode);
 app.use("/qrcodes/all", getAllQrCodes);
+
+app.use("/device/register", registerDevice);
+
+app.use("/notifications/all", getNotifications);
 
 module.exports = app;
