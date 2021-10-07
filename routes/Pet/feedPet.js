@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const { body, validationResult } = require("express-validator");
+const Notifications = require("../../Structures/Firebase/Notifications");
 const prisma = require("../../Structures/Prisma");
 
 /* POST Feed pet */
@@ -80,6 +81,7 @@ router.post(
         },
       },
     });
+    Notifications.petGotFed(pet, userID);
 
     res.send({
       food: true,
