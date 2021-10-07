@@ -45,6 +45,7 @@ router.post(
     const foundQrCode = await prisma.qrCode.findFirst({
       where: {
         petId: petID,
+        userId: userID,
         type: type,
       },
     });
